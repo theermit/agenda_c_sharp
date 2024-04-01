@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Inserir Contato";
+}
+<h1>@ViewData["Title"]</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <form action="@Url.ActionLink("InserirContato","Home")" method="post" class="form">
+            <div class="row">
+                <div class="col-md-12">
+                    <label for="Nome" class="form-label">Nome</label>
+                    <input type="text" class="form-control" name="nome" id="nome">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <label for="Telefone" class="form-label">Telefone</label>
+                    <input type="text" class="form-control" name="telefone" id="telefone">
+                </div>
+            </div>
+            <div class="row">
+                <p>
+                    <button type="reset" class="btn btn-primary">Limpar</button>
+                    <button type="submit" class="btn btn-success">Enviar</button>
+                </p>
+            </div>
+        </form>
+    </div>
+</div>

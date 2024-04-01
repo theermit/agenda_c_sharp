@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\libDAO\libDAO.csproj" />
+    <!--Reference Include="libDAO">
+      <HintPath>..\libDAO\bin\Debug\net6.0\libDAO.dll</HintPath>
+    </Reference-->
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,45 @@
+﻿@model List<libDAO.Models.Contato>
+@{
+    ViewData["Title"] = "Home Page";
+    
+}
+
+
+<div class="text-center">
+    <h1 class="display-4">Lista Telefonica</h1>
+    <p>@Html.ActionLink("Inserir Contato", "FrmInsContato", "Home", null, new {@class = "btn btn-primary"})</p>
+    <script>
+        function apagar(id)
+        {
+            if(confirm('Deseja mesmo apagar?'))
+            {
+                document.querySelector("#id_apagar").value = id;
+                document.querySelector("#frmapagar").submit();
+            }
+        }
+    </script>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Telefone</th>
+                <th>Acao</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var contato in Model)
+            {
+                <tr>
+                    <td>@contato.Nome</td>
+                    <td>@contato.Telefone</td>
+                    <td><button type='button' onclick="apagar(@contato.Id)" class="btn btn-danger">Apagar</button></td>
+                </tr>
+            }
+            
+        </tbody>
+    </table>
+</div>
+
+<form action='@Url.ActionLink("ApagarContato","Home")' method="post" id="frmapagar">
+    <input type="hidden" name="Id" id='id_apagar'>
+</form>
