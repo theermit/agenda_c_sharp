@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using mvc.Models;
 using libDAO.Models;
 using libDAO.DAOs;
-
+using mvc.DTOs;
 namespace mvc.Controllers;
 
 public class HomeController : Controller
@@ -28,11 +28,11 @@ public class HomeController : Controller
         return View();
     }
     [HttpPost]
-    public IActionResult InserirContato(string nome, string telefone)
+    public IActionResult InserirContato(contatoDTO contatoDTO) //public IActionResult InserirContato(string nome, string telefone)
     {
         Contato contato = new Contato();
-        contato.Nome = nome;
-        contato.Telefone = telefone;
+        contato.Nome = contatoDTO.nome;
+        contato.Telefone = contatoDTO.telefone;
         ContatoDAO contatoDAO = new ContatoDAO();
         contatoDAO.Create(contato);
         return RedirectToAction("Index");
