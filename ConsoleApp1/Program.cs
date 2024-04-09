@@ -44,7 +44,7 @@ namespace ConsoleApp1
         }
         static async Task VisualizarContatos()
         {
-            ContatoDAO contatoDAO = new ContatoDAO();
+            IContatoDAO contatoDAO = new ContatoDAO();
             List<Contato> ListaContato;
 
             try 
@@ -67,7 +67,7 @@ namespace ConsoleApp1
         }
         static void InserirContato()
         {
-            ContatoDAO contatoDAO = new ContatoDAO();
+            IContatoDAO contatoDAO = new ContatoDAO();
             Contato contato = new Contato();
             Console.WriteLine("Digite o nome do contato:");
             contato.Nome = Console.ReadLine();
@@ -85,7 +85,7 @@ namespace ConsoleApp1
         }
         static void ApagarContato()
         {
-            ContatoDAO contatoDAO = new ContatoDAO();
+            IContatoDAO contatoDAO = new ContatoDAO();
             Console.WriteLine("Digite o número do contato a ser excluído:");
             var Id = Int32.Parse(Console.ReadLine());
             try 

@@ -18,7 +18,7 @@ public class HomeController : Controller
     public async Task<IActionResult> Index()
     {
         List<Contato> contatos;
-        ContatoDAO contatoDAO = new ContatoDAO();
+        IContatoDAO contatoDAO = new ContatoDAO();
         contatos = await contatoDAO.List();
         return View(contatos);
     }
@@ -33,14 +33,14 @@ public class HomeController : Controller
         Contato contato = new Contato();
         contato.Nome = contatoDTO.nome;
         contato.Telefone = contatoDTO.telefone;
-        ContatoDAO contatoDAO = new ContatoDAO();
+        IContatoDAO contatoDAO = new ContatoDAO();
         contatoDAO.Create(contato);
         return RedirectToAction("Index");
     }
     [HttpPost]
     public IActionResult ApagarContato(int id)
     {
-        ContatoDAO contatoDAO = new ContatoDAO();
+        IContatoDAO contatoDAO = new ContatoDAO();
         contatoDAO.Destroy(id);
         return RedirectToAction("Index");
     }

@@ -15,7 +15,7 @@ using System.Data.Common;
 
 namespace libDAO.DAOs
 {
-    public class ContatoDAO
+    public class ContatoDAO: IContatoDAO
     {
         private OdbcConnection? conn;
 
